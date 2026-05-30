@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Long to Pay Off Student Loans? Complete 2026 Guide + Calculator</title>
+    <meta name="description" content="Calculate exactly how long it takes to pay off student loans. Use our free calculator with real amortization schedules, income-driven repayment comparisons, and payoff strategies.">
+    <meta name="keywords" content="how long to pay off student loans, student loan payoff calculator, student loan repayment timeline, pay off student loans faster">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How Long to Pay Off Student Loans? Complete 2026 Guide">
+    <meta property="og:description" content="Free calculator shows your exact payoff date. Compare standard vs. income-driven repayment.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site.netlify.app/blog/how-long-to-pay-off-student-loans.html">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X4PQXHDR5E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X4PQXHDR5E');
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #48bb78;
+            --accent-dark: #38a169;
+            --danger: #e53e3e;
+            --warning: #ed8936;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --text: #2d3748;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            max-width: 700px;
+            margin: 0 auto 0.75rem;
+            line-height: 1.2;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Article */
+        .article {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .article h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .article h3 {
+            color: var(--primary-light);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .article p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .article ul, .article ol {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        .article li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Calculator embed */
+        .calculator-cta {
+            background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+            border: 2px solid var(--primary-light);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .calculator-cta h3 {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .calculator-cta p {
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .data-table th {
+            background: var(--bg);
+            padding: 0.875rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .data-table td {
+            padding: 0.875rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tr:hover { background: var(--bg); }
+
+        /* Highlight box */
+        .highlight-box {
+            background: #f0fff4;
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box.warning {
+            background: #fffaf0;
+            border-left-color: var(--warning);
+        }
+
+        .highlight-box.danger {
+            background: #fff5f5;
+            border-left-color: var(--danger);
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Quick answer box */
+        .quick-answer {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .quick-answer .big-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .quick-answer .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Author box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg);
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem 1.25rem;
+            background: var(--bg);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 1rem 1.25rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { background: var(--primary); color: white; }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            margin-top: 3rem;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .footer-cta h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta p {
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .footer-cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.5rem; }
+            .article { padding: 1.5rem; }
+            .quick-answer .big-number { font-size: 2rem; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <header class="header">
+        <h1>How Long Does It Take to Pay Off Student Loans?</h1>
+        <p class="subtitle">The complete 2026 guide with real timelines, repayment strategies, and a free payoff calculator</p>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="/">Home</a> → <a href="/blog">Blog</a> → How Long to Pay Off Student Loans
+    </div>
+
+    <div class="container">
+        <article class="article">
+
+            <div class="author-box">
+                <div class="author-avatar">E</div>
+                <div class="author-info">
+                    <h4>Economics Student</h4>
+                    <p>Built the College ROI Calculator using financial modeling and data analysis. Published May 2026.</p>
+                </div>
+            </div>
+
+            <p><strong>The short answer:</strong> Most borrowers take <strong>20 years</strong> to pay off their student loans, but your timeline depends on your balance, interest rate, income, and repayment plan. Use the calculator below to find your exact payoff date.</p>
+
+            <div class="quick-answer">
+                <span class="big-number">20 Years</span>
+                <span class="label">Average time to pay off student loans</span>
+            </div>
+
+            <div class="calculator-cta">
+                <h3>🧮 Find Your Exact Payoff Date</h3>
+                <p>Enter your loan balance, interest rate, and monthly payment to see when you'll be debt-free.</p>
+                <a href="/" class="btn">Try the Free Student Loan Payoff Calculator →</a>
+            </div>
+
+            <h2>How Long to Pay Off Student Loans by Balance</h2>
+
+            <p>Your loan balance is the single biggest factor in your payoff timeline. Here's how long it takes to pay off loans at different amounts, assuming a 5.5% interest rate and standard 10-year repayment:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Loan Balance</th>
+                        <th>Monthly Payment</th>
+                        <th>Total Interest Paid</th>
+                        <th>Payoff Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$10,000</td>
+                        <td>$109</td>
+                        <td>$3,093</td>
+                        <td>10 years</td>
+                    </tr>
+                    <tr>
+                        <td>$20,000</td>
+                        <td>$217</td>
+                        <td>$6,045</td>
+                        <td>10 years</td>
+                    </tr>
+                    <tr>
+                        <td>$30,000</td>
+                        <td>$326</td>
+                        <td>$9,068</td>
+                        <td>10 years</td>
+                    </tr>
+                    <tr>
+                        <td>$50,000</td>
+                        <td>$543</td>
+                        <td>$15,113</td>
+                        <td>10 years</td>
+                    </tr>
+                    <tr>
+                        <td>$75,000</td>
+                        <td>$814</td>
+                        <td>$22,670</td>
+                        <td>10 years</td>
+                    </tr>
+                    <tr>
+                        <td>$100,000</td>
+                        <td>$1,085</td>
+                        <td>$30,226</td>
+                        <td>10 years</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>💡 Key Insight</h4>
+                <p>On the standard 10-year plan, your monthly payment is roughly <strong>1% of your loan balance</strong>. A $30,000 loan costs about $300/month. If that feels unaffordable, income-driven repayment plans can stretch payments to 20–25 years but increase total interest.</p>
+            </div>
+
+            <h2>Repayment Plans: How They Affect Your Timeline</h2>
+
+            <p>The federal government offers eight repayment plans, each with a different timeline. Most borrowers don't realize they have options beyond the default 10-year plan.</p>
+
+            <h3>Standard Repayment (10 Years)</h3>
+            <p>The default plan. Fixed monthly payments for 10 years. You'll pay the least total interest, but monthly payments are highest. Best for borrowers with stable, decent incomes.</p>
+
+            <h3>Graduated Repayment (10 Years)</h3>
+            <p>Payments start low and increase every two years. Assumes your income rises over time. Total interest is higher than standard. Good for early-career professionals expecting salary growth.</p>
+
+            <h3>Extended Repayment (25 Years)</h3>
+            <p>Available for balances over $30,000. Payments can be fixed or graduated. Monthly payments drop significantly, but you pay roughly <strong>2.5x more in total interest</strong>.</p>
+
+            <h3>Income-Driven Repayment (20–25 Years)</h3>
+            <p>Monthly payments capped at 10–20% of discretionary income. Any remaining balance is forgiven after 20–25 years, but forgiven amounts may be taxed as income. Best for borrowers with high debt relative to income.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Timeline</th>
+                        <th>Monthly Payment</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Standard</td>
+                        <td>10 years</td>
+                        <td>Highest</td>
+                        <td>Stable income, minimize interest</td>
+                    </tr>
+                    <tr>
+                        <td>Graduated</td>
+                        <td>10 years</td>
+                        <td>Increasing</td>
+                        <td>Expecting salary growth</td>
+                    </tr>
+                    <tr>
+                        <td>Extended Fixed</td>
+                        <td>25 years</td>
+                        <td>Lower</td>
+                        <td>Balances >$30k, need lower payments</td>
+                    </tr>
+                    <tr>
+                        <td>REPAYE / SAVE</td>
+                        <td>20–25 years</td>
+                        <td>Income-based</td>
+                        <td>High debt-to-income ratio</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>How to Pay Off Student Loans Faster</h2>
+
+            <p>The average borrower could shave <strong>3–5 years</strong> off their repayment timeline with these strategies:</p>
+
+            <ol>
+                <li><strong>Pay extra toward principal.</strong> Even $50/month extra on a $30,000 loan saves ~$2,000 in interest and cuts 2 years off repayment.</li>
+                <li><strong>Use the avalanche method.</strong> If you have multiple loans, pay minimums on all but throw extra at the highest-interest loan first.</li>
+                <li><strong>Refinance if you have good credit.</strong> Dropping from 6.8% to 4.5% on $30,000 saves ~$4,000 over 10 years. <em>Caution: Refinancing federal loans loses income-driven repayment and forgiveness options.</em></li>
+                <li><strong>Put windfalls toward loans.</strong> Tax refunds, bonuses, and gifts make a dent. A $1,000 lump sum on a $30,000 loan at 5.5% saves ~$300 in interest.</li>
+                <li><strong>Enroll in autopay.</strong> Federal servicers offer a 0.25% rate reduction. On $30,000, that's ~$450 saved over 10 years.</li>
+            </ol>
+
+            <div class="highlight-box warning">
+                <h4>⚠️ Avoid These Mistakes</h4>
+                <p>Deferment and forbearance extend your timeline and increase total interest. Income-driven repayment plans lower monthly payments but can double your total interest paid. Only use these if you genuinely cannot afford standard payments.</p>
+            </div>
+
+            <h2>Student Loan Payoff Calculator: Find Your Date</h2>
+
+            <p>The fastest way to know your exact payoff timeline is to use a calculator that accounts for your specific balance, rate, and payment amount. Most online calculators only show standard 10-year repayment — ours lets you model extra payments, refinancing, and income-driven plans.</p>
+
+            <div class="calculator-cta">
+                <h3>🎯 Calculate Your Personal Payoff Date</h3>
+                <p>See exactly when you'll be debt-free. Compare standard vs. income-driven repayment. Model the impact of extra payments.</p>
+                <a href="/" class="btn">Use the Free Calculator →</a>
+            </div>
+
+            <h2>By the Numbers: National Student Loan Statistics (2026)</h2>
+
+            <ul>
+                <li><strong>Average debt at graduation:</strong> $37,000 (federal only)</li>
+                <li><strong>Total outstanding student debt:</strong> $1.7 trillion</li>
+                <li><strong>Borrowers in default:</strong> ~7% (roughly 3.5 million people)</li>
+                <li><strong>Average time to payoff:</strong> 20 years (including those on extended plans)</li>
+                <li><strong>Percentage who pay off in 10 years:</strong> ~40%</li>
+                <li><strong>Percentage who take 20+ years:</strong> ~25%</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>📊 Data Sources</h4>
+                <p>Figures from the Federal Reserve, Department of Education, and National Center for Education Statistics. Updated for 2026.</p>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How long does it take to pay off $30,000 in student loans?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>On the standard 10-year plan at 5.5% interest: <strong>10 years</strong> with $326 monthly payments and $9,068 in total interest. Paying $400/month cuts it to <strong>7.5 years</strong> and saves $2,400 in interest.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Can you pay off student loans in 5 years?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, but it requires aggressive payments. A $30,000 loan at 5.5% would need <strong>$577/month</strong> — 77% more than the standard payment. Most borrowers achieve this through a combination of income growth, living below their means, and directing bonuses/tax refunds toward principal.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Does income-driven repayment take longer?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Income-driven plans stretch repayment to <strong>20–25 years</strong> before forgiveness kicks in. You'll pay significantly more in total interest, but monthly payments stay affordable. For borrowers with high debt and modest income, this is often the only viable option.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What happens if I only pay the minimum?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>On standard repayment, the "minimum" is the fixed monthly amount that pays off the loan in exactly 10 years. On income-driven plans, paying only the calculated minimum means you'll still owe a balance after 20–25 years — which may be forgiven (and taxed) or you'll need to continue paying.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Should I refinance my student loans?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Refinance if you have <strong>private loans or high-rate federal loans</strong> and a stable income above ~$50,000. Don't refinance federal loans if you might need income-driven repayment, public service loan forgiveness, or hardship deferment. Compare rates at multiple lenders — even a 1% reduction matters on large balances.</p>
+                </div>
+            </div>
+
+            <h2>The Bottom Line</h2>
+
+            <p>Most borrowers take <strong>20 years</strong> to eliminate student debt, but your timeline is controllable. The standard 10-year plan minimizes total interest. Income-driven plans stretch to 20–25 years but keep payments affordable. Extra payments — even small ones — dramatically accelerate payoff.</p>
+
+            <p>The key is knowing <em>your</em> numbers. Use the calculator below to model your exact scenario, compare repayment plans, and find your debt-free date.</p>
+
+            <div class="calculator-cta">
+                <h3>🎓 Ready to Find Your Payoff Date?</h3>
+                <p>Free calculator. No signup required. See your timeline in 60 seconds.</p>
+                <a href="/" class="btn">Calculate My Student Loan Payoff →</a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--text-light);">
+                <strong>Related:</strong> <a href="/blog/umass-amherst-roi.html" style="color: var(--primary-light);">UMass Amherst ROI Analysis</a> · 
+                <a href="/blog/is-economics-major-worth-it.html" style="color: var(--primary-light);">Is an Economics Degree Worth It?</a> · 
+                <a href="/" style="color: var(--primary-light);">College ROI Calculator</a>
+            </p>
+
+        </article>
+    </div>
+
+    <div class="footer-cta">
+        <h2>Calculate Your College ROI</h2>
+        <p>Compare tuition costs, expected salaries, and break-even timelines across 8 universities and 9 majors.</p>
+        <a href="/" class="btn">Try the Calculator →</a>
+    </div>
+
+</body>
+</html>
