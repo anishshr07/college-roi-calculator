@@ -1,0 +1,259 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c-ink:#1a1a2e;--c-paper:#faf9f5;--c-cream:#f0ede4;--c-gold:#c9952a;--c-gold-light:#f5e9cc;
+  --c-teal:#1d7a6a;--c-teal-light:#e0f2ee;--c-red:#b03a2e;--c-red-light:#fdecea;
+  --c-muted:#6b6860;--c-border:#ddd8cc;--c-white:#ffffff;
+}
+@media(prefers-color-scheme:dark){:root{
+  --c-ink:#e8e4d8;--c-paper:#141410;--c-cream:#1e1d18;--c-gold:#e8b84b;--c-gold-light:#2a2518;
+  --c-teal:#3db89e;--c-teal-light:#0e2420;--c-red:#e06055;--c-red-light:#2a1210;
+  --c-muted:#9a9488;--c-border:#2e2d28;--c-white:#1e1d18;
+}}
+body{font-family:'Outfit',sans-serif;background:var(--c-paper);color:var(--c-ink)}
+.wrap{max-width:680px;margin:0 auto;padding:1.5rem 1rem 3rem}
+.hero{border-bottom:1px solid var(--c-border);padding-bottom:1.25rem;margin-bottom:1.75rem}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-gold);margin-bottom:.5rem}
+.hero h1{font-family:'DM Serif Display',serif;font-size:32px;line-height:1.15;color:var(--c-ink)}
+.hero h1 em{font-style:italic;color:var(--c-gold)}
+.hero p{margin-top:.5rem;font-size:14px;color:var(--c-muted);line-height:1.6}
+
+.section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--c-muted);margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--c-border)}
+
+.school-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.pill{font-size:12px;padding:5px 12px;border-radius:100px;border:1px solid var(--c-border);background:var(--c-white);color:var(--c-ink);cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif;font-weight:400}
+.pill:hover{border-color:var(--c-gold);color:var(--c-gold)}
+.pill.active{background:var(--c-gold-light);border-color:var(--c-gold);color:var(--c-gold);font-weight:500}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:1.25rem}
+@media(max-width:480px){.grid2{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}}
+.field label{display:block;font-size:12px;color:var(--c-muted);margin-bottom:5px;font-weight:500}
+.field input,.field select{width:100%;padding:9px 12px;border:1px solid var(--c-border);border-radius:8px;background:var(--c-white);color:var(--c-ink);font-size:14px;font-family:'Outfit',sans-serif;outline:none;transition:border .15s}
+.field input:focus,.field select:focus{border-color:var(--c-gold)}
+.prefix-wrap{position:relative}
+.prefix-wrap .pfx{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--c-muted);font-size:14px;pointer-events:none}
+.prefix-wrap input{padding-left:22px}
+
+.calc-btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--c-gold);color:#fff;font-size:15px;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;transition:opacity .15s;letter-spacing:.01em;margin-top:.25rem}
+.calc-btn:hover{opacity:.9}
+
+.results{margin-top:1.75rem;display:none}
+.results.show{display:block}
+
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
+.metric{background:var(--c-cream);border-radius:10px;padding:.875rem 1rem}
+.metric .val{font-family:'DM Serif Display',serif;font-size:26px;line-height:1;margin-bottom:4px}
+.metric .lbl{font-size:11px;color:var(--c-muted);line-height:1.4}
+.metric.good .val{color:var(--c-teal)}
+.metric.warn .val{color:var(--c-gold)}
+.metric.bad .val{color:var(--c-red)}
+
+.verdict{border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:12px;align-items:flex-start}
+.verdict.green{background:var(--c-teal-light);border:1px solid var(--c-teal)}
+.verdict.yellow{background:var(--c-gold-light);border:1px solid var(--c-gold)}
+.verdict.red{background:var(--c-red-light);border:1px solid var(--c-red)}
+.verdict-icon{font-size:20px;line-height:1;flex-shrink:0;margin-top:1px}
+.verdict-text p{font-size:13px;line-height:1.6;color:var(--c-ink)}
+.verdict-text strong{font-weight:600;display:block;margin-bottom:3px;font-size:14px}
+
+.chart-block{margin-bottom:1.25rem}
+.chart-block h3{font-size:13px;font-weight:500;color:var(--c-muted);margin-bottom:.75rem;font-family:'DM Mono',monospace;letter-spacing:.05em;text-transform:uppercase}
+.bar-chart{display:flex;flex-direction:column;gap:8px}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-row .bar-lbl{font-size:12px;color:var(--c-muted);width:90px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;background:var(--c-cream);border-radius:4px;height:24px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;min-width:2px}
+.bar-fill span{font-size:11px;font-weight:500;color:#fff;white-space:nowrap}
+.bar-fill.teal{background:var(--c-teal)}
+.bar-fill.gold{background:var(--c-gold)}
+.bar-fill.red{background:var(--c-red)}
+.bar-fill.gray{background:var(--c-muted);opacity:.5}
+
+.timeline{margin-bottom:1.25rem}
+.tl-track{position:relative;height:10px;background:var(--c-cream);border-radius:5px;overflow:hidden;margin-bottom:.5rem}
+.tl-fill{height:100%;background:linear-gradient(90deg,var(--c-red),var(--c-gold),var(--c-teal));transition:width .8s}
+.tl-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--c-muted)}
+
+.footnote{font-size:11px;color:var(--c-muted);margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--c-border);line-height:1.6}
+</style>
+<h2 class="sr-only">College ROI Calculator — estimate break-even point, net lifetime earnings, and return on your degree investment</h2>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-eyebrow">Economic Decision Tool</div>
+    <h1>Is your degree worth <em>it?</em></h1>
+    <p>Estimate your break-even point, lifetime earnings premium, and true return on your college investment using discounted cash flow analysis.</p>
+  </div>
+
+  <div class="section-label">Quick-select school</div>
+  <div class="school-pills">
+    <button class="pill active" onclick="fillSchool(this,'UMass Amherst',34000,32000,4,7.5)" data-s="uma">UMass Amherst</button>
+    <button class="pill" onclick="fillSchool(this,'Boston University',62000,42000,4,8)" data-s="bu">Boston University</button>
+    <button class="pill" onclick="fillSchool(this,'Northeastern',60000,25000,4,9)" data-s="neu">Northeastern</button>
+    <button class="pill" onclick="fillSchool(this,'UMass Lowell',26000,18000,4,6.5)" data-s="uml">UMass Lowell</button>
+    <button class="pill" onclick="fillSchool(this,'Harvard',57000,5000,4,14)" data-s="hvd">Harvard</button>
+    <button class="pill" onclick="fillSchool(this,'Community College',8000,2000,2,5.5)" data-s="cc">Community College</button>
+    <button class="pill" onclick="fillSchool(this,'Custom',0,0,4,0)" data-s="custom">Custom →</button>
+  </div>
+
+  <div class="section-label">Education costs</div>
+  <div class="grid2">
+    <div class="field"><label>Annual tuition & fees</label><div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="tuition" value="34000" min="0"></div></div>
+    <div class="field"><label>Annual financial aid / scholarships</label><div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="aid" value="32000" min="0"></div></div>
+  </div>
+  <div class="grid2">
+    <div class="field"><label>Years to graduate</label><input type="number" id="years" value="4" min="1" max="10"></div>
+    <div class="field"><label>Annual living expenses (extra vs. no college)</label><div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="living" value="8000" min="0"></div></div>
+  </div>
+
+  <div class="section-label">Career outcomes</div>
+  <div class="grid3">
+    <div class="field"><label>Expected starting salary</label><div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="salary" value="55000" min="0"></div></div>
+    <div class="field"><label>Without-degree salary</label><div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="nosalary" value="35000" min="0"></div></div>
+    <div class="field"><label>Annual salary growth rate (%)</label><input type="number" id="growth" value="3.5" step="0.1" min="0" max="20"></div>
+  </div>
+  <div class="grid2">
+    <div class="field"><label>Loan interest rate (%)</label><input type="number" id="rate" value="7.5" step="0.1" min="0" max="20"></div>
+    <div class="field"><label>Loan repayment (years)</label><input type="number" id="repay" value="10" min="1" max="30"></div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate my college ROI →</button>
+
+  <div class="results" id="results">
+    <div class="section-label" style="margin-top:1.75rem">Your results</div>
+    <div class="metrics" id="metrics"></div>
+    <div id="verdict-box"></div>
+    <div class="chart-block">
+      <h3>Cost breakdown</h3>
+      <div class="bar-chart" id="cost-bars"></div>
+    </div>
+    <div class="chart-block">
+      <h3>Break-even timeline</h3>
+      <div class="tl-track"><div class="tl-fill" id="tl-fill"></div></div>
+      <div class="tl-labels"><span>Year 0</span><span id="tl-mid"></span><span>Year 40</span></div>
+    </div>
+    <div class="chart-block">
+      <h3>Major ROI comparison (national avg)</h3>
+      <div class="bar-chart" id="major-bars"></div>
+    </div>
+    <p class="footnote">This calculator uses simplified DCF modeling. Salary figures are approximations; individual outcomes vary significantly by location, employer, and experience. Not financial advice. Data sourced from BLS Occupational Outlook Handbook & NCES.</p>
+  </div>
+</div>
+
+<script>
+const schools={
+  uma:{t:34000,a:32000,y:4,r:7.5},
+  bu:{t:62000,a:42000,y:4,r:8},
+  neu:{t:60000,a:25000,y:4,r:9},
+  uml:{t:26000,a:18000,y:4,r:6.5},
+  hvd:{t:57000,a:5000,y:4,r:4.5},
+  cc:{t:8000,a:2000,y:2,r:6},
+  custom:{t:0,a:0,y:4,r:7}
+};
+const majorData=[
+  {name:'Computer Science',roi:420,color:'teal'},
+  {name:'Engineering',roi:380,color:'teal'},
+  {name:'Nursing',roi:320,color:'teal'},
+  {name:'Economics',roi:290,color:'gold'},
+  {name:'Business',roi:250,color:'gold'},
+  {name:'Education',roi:140,color:'gold'},
+  {name:'Social Work',roi:80,color:'red'},
+  {name:'Fine Arts',roi:50,color:'red'},
+];
+function fillSchool(btn,name,t,a,y,r){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  if(t>0){document.getElementById('tuition').value=t;}
+  if(a>0){document.getElementById('aid').value=a;}
+  if(y>0){document.getElementById('years').value=y;}
+  if(r>0){document.getElementById('rate').value=r;}
+}
+function fmt(n){return '$'+Math.round(n).toLocaleString()}
+function calculate(){
+  const T=+document.getElementById('tuition').value||0;
+  const A=+document.getElementById('aid').value||0;
+  const Y=+document.getElementById('years').value||4;
+  const L=+document.getElementById('living').value||0;
+  const S=+document.getElementById('salary').value||0;
+  const NS=+document.getElementById('nosalary').value||0;
+  const G=(+document.getElementById('growth').value||0)/100;
+  const R=(+document.getElementById('rate').value||0)/100;
+  const RP=+document.getElementById('repay').value||10;
+  const annualCost=Math.max(0,T-A)+L;
+  const totalDebt=Math.max(0,(T-A))*Y;
+  const totalInvested=annualCost*Y;
+  const salaryPremium=S-NS;
+  // simple break-even (years after graduation)
+  let cumulative=0,breakEvenYr=null;
+  let debt=totalDebt;
+  const monthlyR=R/12;
+  const monthlyPayment=debt>0?debt*(monthlyR*Math.pow(1+monthlyR,RP*12))/(Math.pow(1+monthlyR,RP*12)-1):0;
+  const annualLoanPayment=monthlyPayment*12;
+  for(let i=1;i<=40;i++){
+    const premium=salaryPremium*Math.pow(1+G,i-1);
+    const loan=i<=RP?annualLoanPayment:0;
+    const netGain=premium-loan;
+    cumulative+=netGain;
+    if(cumulative>totalInvested&&!breakEvenYr)breakEvenYr=Y+i;
+  }
+  // 20-year NPV
+  const discount=0.05;
+  let npv=-totalInvested;
+  for(let i=1;i<=20;i++){
+    const premium=salaryPremium*Math.pow(1+G,i-1);
+    const loan=i<=RP?annualLoanPayment:0;
+    npv+=(premium-loan)/Math.pow(1+discount,i);
+  }
+  // lifetime premium (40 yrs)
+  let lifePremium=0;
+  for(let i=0;i<40;i++)lifePremium+=salaryPremium*Math.pow(1+G,i);
+  const simpleROI=totalInvested>0?((lifePremium-totalInvested)/totalInvested)*100:0;
+  // render metrics
+  const metricsEl=document.getElementById('metrics');
+  const beDisplay=breakEvenYr?'Year '+breakEvenYr:'Never';
+  const beClass=!breakEvenYr?'bad':breakEvenYr<15?'good':'warn';
+  const npvClass=npv>50000?'good':npv>0?'warn':'bad';
+  const roiClass=simpleROI>100?'good':simpleROI>50?'warn':'bad';
+  metricsEl.innerHTML=`
+    <div class="metric ${beClass}"><div class="val">${beDisplay}</div><div class="lbl">break-even point</div></div>
+    <div class="metric ${npvClass}"><div class="val">${fmt(npv)}</div><div class="lbl">20-yr NPV (5% discount)</div></div>
+    <div class="metric"><div class="val">${fmt(lifePremium)}</div><div class="lbl">lifetime salary premium</div></div>
+    <div class="metric ${roiClass}"><div class="val">${Math.round(simpleROI)}%</div><div class="lbl">simple 40-yr ROI</div></div>
+  `;
+  // verdict
+  const verdictEl=document.getElementById('verdict-box');
+  let vClass,vIcon,vTitle,vText;
+  if(npv>100000){vClass='green';vIcon='✓';vTitle='Strong investment';vText=`With a projected 20-year NPV of ${fmt(npv)} and a break-even around year ${breakEvenYr||'?'}, this degree appears to be a financially sound decision based on your inputs.`;}
+  else if(npv>0){vClass='yellow';vIcon='~';vTitle='Moderate return';vText=`Your projected NPV is positive (${fmt(npv)}), but the return is modest. Consider negotiating aid, choosing a higher-salary major, or exploring faster degree paths.`;}
+  else{vClass='red';vIcon='!';vTitle='Consider alternatives';vText=`Based on these inputs, the salary premium may not offset the cost over 20 years (NPV: ${fmt(npv)}). Review aid options, major selection, or consider community college transfer routes.`;}
+  verdictEl.innerHTML=`<div class="verdict ${vClass}"><div class="verdict-icon">${vIcon}</div><div class="verdict-text"><strong>${vTitle}</strong><p>${vText}</p></div></div>`;
+  // cost bars
+  const maxCost=Math.max(totalInvested,totalDebt,lifePremium/10);
+  document.getElementById('cost-bars').innerHTML=[
+    {lbl:'Net cost paid',val:totalInvested,cls:'red'},
+    {lbl:'Total debt',val:totalDebt,cls:'gold'},
+    {lbl:'Loan payments',val:annualLoanPayment*RP,cls:'gold'},
+    {lbl:'20yr premium',val:Math.min(lifePremium,lifePremium),cls:'teal'},
+  ].map(b=>{
+    const pct=Math.min(100,maxCost>0?(b.val/Math.max(totalInvested*4,1))*100:0);
+    return `<div class="bar-row"><div class="bar-lbl">${b.lbl}</div><div class="bar-track"><div class="bar-fill ${b.cls}" style="width:${pct}%"><span>${fmt(b.val)}</span></div></div></div>`;
+  }).join('');
+  // timeline
+  const tlPct=breakEvenYr?Math.min(100,(breakEvenYr/40)*100):100;
+  document.getElementById('tl-fill').style.width=tlPct+'%';
+  document.getElementById('tl-mid').textContent=breakEvenYr?'Break-even: year '+breakEvenYr:'No break-even';
+  // major bars
+  const maxROI=Math.max(...majorData.map(m=>m.roi));
+  document.getElementById('major-bars').innerHTML=majorData.map(m=>{
+    const pct=(m.roi/maxROI)*100;
+    return `<div class="bar-row"><div class="bar-lbl">${m.name}</div><div class="bar-track"><div class="bar-fill ${m.color}" style="width:${pct}%"><span>${m.roi}%</span></div></div></div>`;
+  }).join('');
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+calculate();
+</script>
